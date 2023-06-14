@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify || Ekansh</title>
+    <link rel="shortcut icon"
+        href="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664021/ALL_PHOTO_OF_SPOTIFY/Sp_logo_feklmx.png"
+        type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../stylesheets/playsong.css">
+    <style>
+        .active>.left_a {
+            color: #fff !important;
+
+        }
+
+        .item .left_a {
+            display: flex;
+            align-items: center;
+            color: #bebebe;
+            cursor: pointer;
+            text-decoration: none;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .item .left_a:hover {
+            color: #fff;
+        }
+
+        .item .left_a i {
+            font-size: 1.5vw;
+        }
+
+        .item a i {
+            font-size: 1.5vw;
+        }
+
+
+        .item .left_a h3 {
+            font-size: 1vw;
+            margin-bottom: .2vw;
+        }
+
+        .listPlay {
+            width: 10vw;
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .changes {
+            justify-content: flex-start;
+        }
+
+        .top_play {
+            width: 100%;
+            min-height: 40vh;
+            display: flex;
+
+            background: linear-gradient(#ffffff2c, rgba(40, 40, 40, 0.315));
+
+        }
+
+        .top_play_left {
+            width: 27%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .top_play_right {
+            width: 60%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play_img_box {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .play_img_box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .play_text_box {
+            height: 100%;
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .play_text_box h6 {
+            text-transform: uppercase;
+            /* font-size: 1.2vw; */
+            color: #fff;
+        }
+
+        .play_text_box h1 {
+            font-size: 6vw;
+            font-weight: bolder;
+        }
+
+        .profile {
+            position: relative;
+            width: 10px;
+            height: 10px;
+        }
+
+        .profile a {
+            font-weight: 600;
+            position: absolute;
+            top: 440%;
+            left: 0;
+            text-transform: capitalize;
+        }
+
+        .bottom_play {
+            width: 100%;
+            min-height: 40vh;
+
+            background-color: #171717;
+
+        }
+
+        .btrow1 {
+            width: 100%;
+            height: 7vh;
+            display: flex;
+            background: linear-gradient(#232323, rgba(40, 40, 40, 0.315));
+            align-items: center;
+            padding-left: 2vw;
+        }
+
+        .playbtn {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .3s;
+            border-radius: 50%;
+            background-color: #1ED760;
+        }
+
+        .playbtn i {
+            font-size: 1.5vw;
+            color: #000000;
+        }
+
+
+        .row1_btns {
+            width: 40vw;
+            display: flex;
+            gap: 2vw;
+            align-items: center;
+        }
+
+        .row1_btns>span>i {
+            cursor: pointer;
+            font-size: 1.7vw;
+            color: rgb(153, 153, 153);
+
+        }
+
+        .row1_btns>a>i {
+            font-size: 1.7vw;
+            transition: .3s;
+            color: rgb(153, 153, 153);
+        }
+
+        .row1_btns i:hover {
+            color: #fff;
+        }
+
+        .songs_play_list {
+            width: 100%;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding-top: 2vw;
+            padding-bottom: 2vw;
+            flex-direction: column;
+            background-color: #0f0f0f;
+        }
+
+        .title {
+            width: 90%;
+            height: 5vh;
+            border-bottom: 1px solid #dadada;
+            display: flex;
+            align-items: center;
+            padding: 0 1vw;
+
+        }
+
+        .songs_line_title {
+            border-radius: 3px;
+            width: 90%;
+            height: 8vh;
+            justify-content: space-between;
+            transition: .3s;
+            display: flex;
+            align-items: center;
+            padding: 0 1vw;
+
+        }
+
+        .proxy_song_line {
+            border-radius: 3px;
+            width: 90%;
+            height: 8vh;
+            justify-content: space-between;
+            transition: .3s;
+            display: flex;
+            align-items: center;
+            padding: 0 1vw;
+
+        }
+
+        .songs_line_title:hover {
+            background-color: #ffffff36;
+        }
+
+        .songs_line_title p {
+            color: #fff;
+        }
+
+        .title p {
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .title_line {
+            display: flex;
+            width: 20vw;
+            /* height: auto; */
+        }
+
+        .start_title {
+            gap: 10px;
+            align-items: center;
+            width: 26vw;
+        }
+
+        .extra {
+            width: 5vw;
+        }
+
+        .title_img {
+            width: 45px;
+            height: 45px;
+            background-color: #fff;
+        }
+
+        .title_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .title_text {
+            display: flex;
+            color: #fff;
+            height: 7vh;
+            width: auto;
+            padding-top: .2vw;
+            align-items: flex-start;
+            /* justify-content: flex-end; */
+            flex-direction: column;
+        }
+
+        .title_text p {
+            font-size: .9vw;
+            color: #bdbdbd;
+
+        }
+
+        .playlist::-webkit-scrollbar {
+            display: none;
+        }
+
+        .playlist {
+            gap: 7px;
+            justify-content: flex-start;
+            overflow-x: hidden;
+            padding: .3vw 0;
+            overflow-y: scroll;
+            max-height: 15.5vh;
+        }
+
+        .listdiffer2 {
+            border-bottom: 1px solid grey;
+            margin-bottom: 1vw;
+        }
+
+        .listPlay {
+            width: 9vw;
+            height: 4vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .listPlay a {
+            color: grey;
+            transition: .3s;
+        }
+
+        .listPlay:hover a {
+            color: #fff;
+        }
+
+        .delbtn {
+            opacity: 0;
+        }
+
+        .delbtn:hover {
+            color: rgb(255, 100, 100) !important;
+        }
+
+        .delbtn1:hover {
+            color: rgb(255, 100, 100) !important;
+        }
+
+        .listPlay:hover .delbtn {
+            opacity: 1;
+        }
+
+        .changename {
+            cursor: pointer;
+        }
+
+        .song_card_route {
+            cursor: pointer;
+        }
+
+        .song_card {
+            width: 12.5vw;
+            overflow: hidden;
+            height: auto;
+            flex-shrink: 0;
+            border-radius: 7px;
+            cursor: pointer;
+            position: relative;
+            padding: 1vw;
+            transition: .4s;
+            background-color: #181818;
+        }
+
+        .song_card:hover {
+            background-color: #303030;
+        }
+
+        .song_card_temp {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            position: relative;
+
+            border-radius: 7px;
+            overflow: hidden;
+        }
+
+        .song_img {
+            width: 100%;
+            height: 22.5vh;
+            pointer-events: none;
+        }
+
+        .song_img img {
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            pointer-events: none;
+            height: 100%;
+        }
+
+        .song_body {
+            padding-top: 1vw;
+            pointer-events: none;
+        }
+
+        .song_body h6 {
+            font-weight: bolder;
+            color: #fff;
+            margin-bottom: .5vw;
+        }
+
+        .song_body p {
+            font-size: .9vw;
+            color: #bebebe;
+            font-weight: 600;
+        }
+
+        .playlistShowing {
+            padding: 3vw;
+            background-color: #171717;
+        }
+
+        .allPlaylist {
+            width: 100%;
+            height: 100%;
+            flex-wrap: wrap;
+            gap: 50px;
+            /* justify-content: space-evenly; */
+            align-items: flex-start;
+            display: flex;
+        }
+
+        .elsediv i {
+            font-size: 5vw;
+            color: #4f4f4f;
+        }
+
+        .profile {
+            width: 50vw;
+            position: absolute;
+            bottom: 12%;
+            left: 6%;
+            color: #fff;
+        }
+
+        @media screen and (max-width:600px) {
+            .right_part {
+                height: auto;
+            }
+
+            .top_play {
+                flex-direction: column;
+            }
+
+            .top_play_left {
+                width: 100%;
+                height: 50%;
+                padding-top: 2vh;
+                justify-content: center;
+            }
+
+            .play_img_box {
+                width: 210px;
+                height: 210px;
+            }
+
+            .elsediv i {
+                font-size: 20vw !important;
+            }
+
+            .top_play_right {
+                height: 11vh;
+                width: 100%;
+            }
+
+            .row1_btns>span>i {
+                font-size: 8.7vw;
+            }
+
+            .profile {
+                width: 100vw;
+                left: 12%;
+            }
+
+            .play_text_box {
+                align-items: center;
+            }
+
+            .allPlaylist {
+                width: auto;
+                flex-wrap: nowrap;
+                overflow: scroll;
+                gap: 30px;
+                align-items: normal;
+            }
+
+            .songs_play_list {
+                display: block;
+            }
+
+            .none_title {
+                display: none;
+            }
+
+            .start_title {
+                width: 50vw;
+
+            }
+
+            .newonestart {
+                margin-left: 7vw;
+            }
+
+            .title_text h5 {
+                font-size: 4vw;
+            }
+
+            .title_text p {
+                font-size: 2.9vw;
+            }
+
+            .title_text {
+                height: 4.5vh;
+            }
+
+            .songs_line_title .title_line p {
+                font-size: 3vw;
+            }
+
+
+        }
+    </style>
+
+    <link rel="stylesheet" href="../stylesheets/common.css">
+    <link rel="stylesheet" href="../stylesheets/spotify.css">
+    <link rel="stylesheet" href="../stylesheets/myAcc.css">
+    <link rel="stylesheet" href="../stylesheets/playResp.css">
+
+</head>
+
+<body>
+
+
+    <!-- modal for image -->
+
+    <!-- end imagemodal -->
+
+    <!-- Modal -->
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark border border-0">
+                <div class="modal-header  ">
+                    <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">Edit Details</h1>
+                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <form action="/edit/profile" method="post" enctype="multipart/form-data">
+                    <div class="modal-body border border-0">
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label text-light ">Change Your
+                                Name</label>
+                            <input type="text" class="form-control border border-0 inputchange"
+                                style="background-color: #4f4f4f; color: #fff;" id="exampleFormControlInput1"
+                                value="<%=user.name%>" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label text-light ">Email</label>
+                            <input type="email" class="form-control border border-0 inputchange"
+                                style="background-color: #4f4f4f; color: #fff;" id="exampleFormControlInput1"
+                                value="<%=user.email%>" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label text-light">Profile DP</label>
+                            <input style="background-color: #4f4f4f; color: #fff;"
+                                class="form-control border border-0 inputchange" type="file" id="formFile" name="pic">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer border border-0">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="sideSetBar ">
+            <div class="crossBtnSet" onclick="closeSet()"><i class="ri-close-line"></i></div>
+            <div class="sideArea">
+                <div class="onesideArea">
+                    <div class="text_div">
+                        <a href="/myaccount">Profile<i class="ri-arrow-right-up-line"></i></a>
+                    </div>
+                    <div class="text_div">
+                        <a href="/logout">Logout</a>
+                    </div>
+                    <div class="hrline"></div>
+                    <div class="onesideArea1">
+                        <h2>Premium</h2>
+                        <h2>Support</h2>
+                        <h2>Downlaod</h2>
+                        <h2>Privacy</h2>
+                        <h2>Terms</h2>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="page1">
+            <div class="left_placeholder"></div>
+            <div class="left">
+                <div class="logo" id="logoresp">
+                    <img src="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/spologo_tcowjk.png"
+                        alt="">
+                </div>
+                <div class="list listdiffer">
+                    <div class="item active">
+                        <a href="/spotify"><i class="ri-home-4-fill"></i>
+                            <h3>Home</h3>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="/search"><i class="ri-search-line"></i>
+                            <h3>Search</h3>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a href="/allsongs"><i class="ri-music-fill text-light"></i>
+                            <h3>All Songs</h3>
+                        </a>
+                    </div>
+                    <div class="item comingsoon">
+                        <span><i class="ri-arrow-up-double-line"></i>
+                            <h3>More</h3>
+                        </span>
+                    </div>
+                </div>
+                <div class="list listdiffer2">
+                    <div class="item">
+                        <span class="left_a"><i class="ri-add-box-fill"></i>
+                            <h3 class="create text-light">Create Playlist</h3>
+                        </span>
+                    </div>
+                    <div class="item">
+                        <a href="/likedsongs"><i class="ri-heart-fill"></i>
+                            <h3>Liked Songs</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="list playlist playlistjs">
+
+                </div>
+            </div>
+            <div class="right">
+                <div class="right_nav">
+                    <div class="right_lnav right_nav_comman">
+
+                    </div>
+                    <div class="right_rnav right_nav_comman">
+                        <div class="right_auth" style="width:21vw">
+                            <div class="nav_log ">
+                                <h6 style="color: #fff;" class="d-flex align-items-center "> <i
+                                        style="font-size: 1.5vw;margin-right: .5vw;" class="ri-user-fill"></i>
+                                    <%=user.name %>
+                                </h6>
+                            </div>
+                            <div class="logout mx-4 ">
+                                <a href="/logout" class="btn btn-primary ">Logout</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="right_part">
+                    <div class="play_cover changes">
+                        <div class="top_play">
+                            <div class="top_play_left">
+                                <div class="play_img_box " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <% if(user.pic==0 ){ %>
+                                        <div class="elsediv d-flex align-items-center justify-content-center"
+                                            style="width: 100%;height: 100%;background-color: #202020;">
+                                            <i class="ri-user-3-line"></i>
+                                        </div>
+                                        <% } else{ %>
+                                            <img src="<%=user.pic %>" alt="">
+                                            <% } %>
+
+
+                                </div>
+                            </div>
+                            <div class="top_play_right">
+                                <div class="play_text_box">
+                                    <h6>Profile</h6>
+
+                                    <h1 class="text-light changename" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
+                                        <%= user.name %>
+                                    </h1>
+                                    </a>
+                                    <div class="profile d-flex">
+                                        <p>
+                                            <%=user.email%> &nbsp;
+                                        </p>,<p class="mx-2">
+                                            <%=user.playlist.length %> Your Playlist
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom_play">
+                            <div class="btrow1">
+                                <div class="row1_btns">
+                                    <!-- <div class="playbtn"><i class="ri-play-fill"></i></div> -->
+                                    <!-- <a href="/deleteplaylist/"><i class="ri-delete-bin-6-line"></i></a> -->
+                                    <span data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                            class="ri-edit-box-line px-2"></i></span>
+                                </div>
+                            </div>
+                            <div class="playlistShowing ">
+                                <div class="allPlaylist">
+                                    <% user.playlist.forEach(function(dets){ %>
+
+
+                                        <div class="song_card song_card_routeS"
+                                            style="border: 1px solid rgb(57, 57, 57);">
+                                            <a href="/openplaylist/<%=dets._id%>">
+                                                <div class="song_card_temp">
+                                                    <div class="song_img">
+
+
+                                                        <img src="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/editcover_lx9ozs.png" alt="">
+
+
+
+                                                    </div>
+                                                    <div class="song_body">
+                                                        <h6>
+                                                            <%=dets.playlist %>
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                        <% }) %>
+
+                                </div>
+                            </div>
+                            <div class="songs_play_list">
+                                <div class="title1">
+                                    <!-- <a href=""> -->
+                                    <div class="title">
+                                        <div class="title_line start_title newonestart">
+                                            <p>#</p>
+                                            <p>Title</p>
+                                        </div>
+                                        <div class="title_line">
+                                            <p>album</p>
+                                        </div>
+                                        <div class="title_line none_title">
+                                            <p>category</p>
+                                        </div>
+                                        <div class="title_line extra">
+                                            <p class="extMargin">Plays</p>
+                                        </div>
+                                    </div>
+                                    <!-- </a> -->
+
+                                </div>
+
+                                <% var test=0 %>
+                                    <% songs.forEach(function(dets,value){ %>
+
+                                        <% if(dets.viewson> 2){ %>
+                                            <% test=1 %>
+                                                <div class="songs_line_title1 song_card_route"
+                                                    data-name="<%=dets._id%>">
+
+                                                    <div class="songs_line_title">
+                                                        <!-- <a class="proxy_song_line" href="/playing/<%=dets._id %>"> -->
+                                                        <div class="title_line start_title">
+                                                            <p>
+                                                                <%=value+1%>
+                                                            </p>
+                                                            <div class="title_img">
+                                                                <img src="<%=dets.image%>" alt="">
+                                                            </div>
+                                                            <div class="title_text">
+                                                                <h5>
+                                                                    <%=dets.track %>
+                                                                </h5>
+                                                                <p>
+                                                                    <%=dets.artist %>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="title_line">
+                                                            <p>
+                                                                <%=dets.album %>
+                                                            </p>
+                                                        </div>
+                                                        <div class="title_line none_title">
+                                                            <p style="text-transform: capitalize;">
+                                                                <%=dets.categories %>
+                                                            </p>
+                                                        </div>
+                                                        <!-- </a> -->
+
+
+                                                        <div class="title_line extra">
+                                                            <p>
+                                                                <%=dets.viewson %>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <% } %>
+                                                    <% }) %>
+                                                        <% if(test==0){ %>
+                                                            <h4 class="text-light " style="margin-left: -5vw;">No plays
+                                                                till now..Play should be more than 2</h4>
+                                                            <% } %>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top_mobile">
+                <div class="top_logo">
+                    <img src="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/spologo_tcowjk.png"
+                        alt="">
+
+                </div>
+                <div class="set" onclick="openSet()">
+                    <i class="ri-settings-5-line"></i>
+                </div>
+            </div>
+        </div>
+        <div class="player_bot">
+            <div class="down_arrow">
+                <i class="ri-arrow-down-s-fill"></i>
+            </div>
+            <div class="one">
+                <div class="side_img">
+                    <img src="" alt="">
+                </div>
+                <div class="one_cont">
+                    <div class="text_one ">
+                        <a href="" id="songnamehere"></a><i class="ri-music-fill text-light"></i>
+                        <p></p>
+
+                    </div>
+                    <div class="text_heart">
+                        <div class="like_sec" data-likesec=""></div>
+                        <!-- <a href=""><i class="ri-play-list-add-line"></i></a> -->
+                    </div>
+                    <div class="text_playlist text_one_com">
+                        <div class="options_playlist p-3">
+                        </div>
+                        <i class="ri-play-list-add-line playlisticon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="two">
+                <audio src="" id="aud" controls controlsList="nodownload"></audio>
+            </div>
+            <div class="three">
+                <i class="ri-repeat-2-line repeat mx-3"></i>
+                <i class="ri-share-line share_line"></i>
+                <div class="vol">
+                    <i class="ri-volume-mute-line mutebtn"></i>
+                    <i class="ri-volume-up-line volbtn"></i>
+                    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="1">
+
+                </div>
+            </div>
+            <div class="extraForResp">
+                <div class="resp_arrow"><i class="ri-arrow-up-s-line "></i></div>
+                <!-- <div class="resp_pause"><i class="ri-pause-mini-line pauseBtn"></i></div> -->
+            </div>
+        </div>
+        
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"
+        integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="../javascripts/common.js"></script>
+    <script src="../javascripts/playerbot.js"></script>
+
+</body>
+
+</html>

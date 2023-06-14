@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify || Ekansh</title>
+    <link rel="shortcut icon"
+        href="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664021/ALL_PHOTO_OF_SPOTIFY/Sp_logo_feklmx.png"
+        type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: #000;
+
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav {
+            width: 100%;
+            height: 13vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgb(181, 181, 181);
+            background-color: #fff;
+        }
+
+        .img {
+            width: 11vw;
+            height: 7vh;
+
+        }
+
+        .img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+            width: 100%;
+            height: calc(100% - 13vh);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2vw;
+            padding-bottom: 4vw;
+            /* background-color: aqua; */
+
+        }
+
+        .center {
+            width: 30vw;
+            height: auto;
+            padding-bottom: 2vw;
+            padding-top: 5vw;
+            border-bottom: 1px solid rgb(181, 181, 181);
+        }
+
+        .center2 {
+            width: 30vw;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            flex-direction: column;
+            height: auto;
+            padding-bottom: 1vw;
+            padding-top: 2vw;
+        }
+
+        #sub {
+            padding: .8vw 1.6vw;
+            background-color: #1ED760;
+            border-radius: 40px;
+            color: #000;
+            border: none;
+            font-weight: bold;
+            transition: .5s;
+        }
+
+        #sub:hover {
+            scale: 1.05;
+        }
+
+        #dont {
+            font-weight: bold;
+            font-size: 1.2vw;
+        }
+
+        #sign {
+            padding: 1vw 1vw;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            color: rgb(101, 101, 101);
+            outline-width: 1px;
+            outline-color: grey;
+            outline-style: solid;
+            border-radius: 40px;
+            text-decoration: double;
+            border: none;
+            font-weight: bold;
+            transition: .5s;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .onetime {
+            display: none;
+        }
+
+        .mb-3 .sent.text-success {
+            font-size: 1.4vw;
+        }
+
+        @media screen and (max-width:600px) {
+            .center {
+                width: 86vw;
+            }
+
+            .img {
+                width: 50vw;
+                height: auto;
+            }
+
+            #dont {
+                font-size: 4.3vw;
+            }
+
+            .center2 {
+                width: 60vw;
+            }
+
+            #sub {
+                padding: 2.2vw 10vw;
+            }
+
+            .mb-3 .sent.text-success {
+                font-size: 4.4vw;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="nav">
+            <a href="/">
+                <div class="img">
+                    <img src="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664023/ALL_PHOTO_OF_SPOTIFY/spotblack_gww92v.png" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="content">
+            <div class="center">
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Email</label>
+                    <input type="email" class="form-control email" id="exampleFormControlInput1"
+                        placeholder="Same email as last one" name="email">
+                </div>
+
+                <div class="mb-3 ">
+                    <input id="sub" type="submit" value="Send OTP">
+                    <span class="sent text-success" style="display: none;">OTP Sent</span>
+                </div>
+                <div class="mb-3 onetime">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Enter OTP</label>
+                    <input type="number" class="form-control otp" id="exampleFormControlInput1" placeholder="Enter OTP"
+                        name="otp">
+                </div>
+            </div>
+            <div class="center2">
+                <p id="dont">Don't have an account?</p>
+                <a id="sign" href="/sign">SIGN UP FOR SPOTIFY</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"
+        integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../javascripts/forgotpw.js"></script>
+</body>
+
+</html>

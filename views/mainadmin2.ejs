@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify || Ekansh</title>
+    <link rel="shortcut icon"
+        href="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664021/ALL_PHOTO_OF_SPOTIFY/Sp_logo_feklmx.png"
+        type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <style>
+        .player_bot {
+            width: 100%;
+            height: 12vh;
+            background-color: rgb(0, 0, 0);
+            position: fixed;
+            bottom: -40%;
+
+            align-items: center;
+            justify-content: space-evenly;
+            display: flex;
+            border-top: 1px solid grey;
+            transition: .4s;
+        }
+
+        .one {
+            width: 28vw;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+        }
+
+        .two {
+            width: 38vw;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .three {
+            width: 28vw;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .one_cont {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* letter-spacing: 1px; */
+        }
+
+        .one_cont a {
+            font-size: 1.5vw;
+
+        }
+
+        .text_one p {
+            text-transform: lowercase;
+            color: grey;
+            font-size: .9vw;
+
+        }
+
+        .text_heart {
+            height: 4vh;
+        }
+
+        .text_playlist {
+            position: relative;
+            height: 4vh;
+            padding-left: .6vw;
+        }
+
+        .text_heart i {
+            color: #fff;
+            font-size: 1.4vw;
+        }
+
+        .text_playlist i {
+            color: #fff;
+            font-size: 1.4vw;
+        }
+
+        #aud {
+            width: 100%;
+            background: black;
+            height: 70%;
+        }
+
+        .side_img {
+            width: 60px;
+            height: 60px;
+            background-color: aliceblue;
+        }
+
+        .side_img img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .vol {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .vol i {
+            font-size: 1.4vw;
+            color: #fff;
+        }
+
+        .mutebtn {
+            display: none;
+        }
+
+        .three .repeat {
+            cursor: pointer;
+            color: grey;
+        }
+
+        .down_arrow {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            right: 1%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: -15%;
+        }
+
+        .down_arrow i {
+            font-size: 1.5vw;
+            color: #000000;
+        }
+
+        .playlist::-webkit-scrollbar {
+            display: none;
+        }
+
+        .playlist {
+            gap: 7px;
+            justify-content: flex-start;
+            overflow-x: hidden;
+            padding: .3vw 0;
+            overflow-y: scroll;
+            max-height: 15.5vh;
+        }
+
+        .listdiffer2 {
+            border-bottom: 1px solid grey;
+            margin-bottom: 1vw;
+        }
+
+        .listPlay {
+            width: 9vw;
+            height: 4vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .listPlay a {
+            color: grey;
+            transition: .3s;
+        }
+
+        .listPlay:hover a {
+            color: #fff;
+        }
+
+        .delbtn {
+            opacity: 0;
+        }
+
+        .delbtn:hover {
+            color: rgb(255, 100, 100) !important;
+        }
+
+        .listPlay:hover .delbtn {
+            opacity: 1;
+        }
+
+        .options_playlist::-webkit-scrollbar {
+            display: none;
+        }
+
+        .options_playlist {
+            position: absolute;
+            bottom: 3vh;
+            display: none;
+            z-index: 9;
+            width: auto;
+            opacity: 1;
+            max-height: 50vh;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background-color: #000000;
+            left: 0;
+        }
+
+        .text_playlist i {
+            z-index: 99999;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .text_playlist:hover .options_playlist {
+            display: block;
+            cursor: pointer;
+        }
+
+        #addtolist {
+            font-size: 1vw;
+        }
+
+        .addtoplaylist {
+            width: 6vw;
+        }
+
+        .showingallsongs {
+            display: none;
+        }
+
+        #pointerevents {
+            pointer-events: all !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="page1">
+            <div class="left_placeholder"></div>
+            <div class="left">
+                <div class="logo">
+                    <img src="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/spologo_tcowjk.png"
+                        alt="">
+                </div>
+                <div class="list listdiffer">
+                    <div class="item active">
+                        <a href="/spotify"><i class="ri-home-4-fill"></i>
+                            <h3>Home</h3>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <span class="left_a allsongsshow"><i class="ri-music-2-line"></i>
+                            <h3>All Songs</h3>
+                        </span>
+                    </div>
+
+                    <div class="item">
+                        <a href="/songs/upload"><i class="ri-upload-cloud-line"></i>
+                            <h3>Upload a Song</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="list listdiffer2">
+                    <div class="item">
+                        <a href="/createplaylist"><i class="ri-add-box-fill"></i>
+                            <h3>Create Playlist</h3>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="/likedsongs"><i class="ri-heart-fill"></i>
+                            <h3>Liked Songs</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="list playlist">
+                    <% user.playlist.reverse().forEach(function(play){ %>
+                        <div class="listPlay d-flex ">
+                            <a href="/openplaylist/<%=play._id %>">
+                                <%= play.playlist %>
+                            </a>
+                            <a href="/deleteplaylist/<%=play._id %>" class="delbtn"><i
+                                    class="ri-delete-bin-6-line"></i></a>
+                        </div>
+                        <% }) %>
+
+
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="right_nav">
+                    <div class="right_lnav right_nav_comman">
+
+                    </div>
+                    <div class="right_rnav right_nav_comman">
+                        <div class="right_auth" style="width:21vw">
+                            <div class="nav_log ">
+                                <h6 style="color: #fff;" class="d-flex align-items-center "> <i
+                                        style="font-size: 1.5vw;margin-right: .5vw;" class="ri-user-fill"></i>
+                                    <a id="myAcc" href="/myaccount">
+                                        <%= user.name %>
+                                    </a>
+                                </h6>
+
+                            </div>
+                            <div class="logout mx-4 ">
+                                <a href="/logout" class="btn btn-primary ">Logout</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="right_part">
+                    <div class="right_layer1">
+                        <div class="layer1_line">
+                            <a href="">
+                                <h2>Trending Songs</h2>
+                            </a>
+                            <a href="/allsongs">Show all songs</a>
+                        </div>
+
+                        <div class="layer1_songs">
+
+                            <% song.forEach(function(dets){ %>
+                                <% if(dets.viewson> 10 ) {%>
+                                    <div class="song_card song_card_route" data-name="<%=dets._id%>">
+
+                                        <div class="song_card_temp ">
+                                            <div class="playbtn"><i class="ri-play-fill"></i></div>
+                                            <div class="song_img">
+                                                <img src="<%=dets.image%>" alt="">
+                                            </div>
+
+                                            <div class="song_body">
+                                                <h6>
+                                                    <%=dets.track %>
+                                                </h6>
+                                                <p>
+                                                    <%= dets.artist %>
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <% } %>
+
+                                        <% }) %>
+
+                        </div>
+                    </div>
+                    <div class="right_layer2">
+                        <div class="layer1_line">
+                            <a href="">
+                                <h2>Categories</h2>
+                            </a>
+                            <a href="/allsongs">Show all songs</a>
+                        </div>
+
+                        <div class="layer1_songs clutter_in">
+                        </div>
+                    </div>
+                </div>
+                <div class="showingallsongs p-3">
+                    <h3 class="textchange">All Songs</h3>
+                    <div class="layer1_songs showmesongs p-3">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="player_bot">
+            <div class="down_arrow">
+                <i class="ri-arrow-down-s-fill"></i>
+            </div>
+            <div class="one">
+                <div class="side_img">
+                    <img src="" alt="">
+                </div>
+                <div class="one_cont">
+                    <div class="text_one ">
+                        <a href="" id="songnamehere"></a><i class="ri-music-fill text-light"></i>
+                        <p></p>
+
+                    </div>
+                    <div class="text_heart">
+                        <!-- <a href=""><i class="ri-play-list-add-line"></i></a> -->
+                    </div>
+                    <div class="text_playlist">
+                        <div class="options_playlist p-3">
+                        </div>
+                        <i class="ri-play-list-add-line playlisticon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="two">
+                <audio src="" id="aud" controls controlsList="nodownload"></audio>
+            </div>
+            <div class="three">
+                <i class="ri-repeat-2-line repeat mx-3"></i>
+                <div class="vol">
+                    <i class="ri-volume-mute-line mutebtn"></i>
+                    <i class="ri-volume-up-line volbtn"></i>
+                    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="1">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"
+        integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        var songcard = document.querySelectorAll(".song_card_route");
+        var audio = document.querySelector("#aud");
+
+        songcard = [...songcard];
+
+        songcard.forEach(function (dets) {
+
+            dets.addEventListener("click", function (elem) {
+
+                var id = elem.target.dataset.name;
+
+                axios.get(`/play/${id}`).then(function (resp) {
+                    document.querySelector("#songnamehere").innerHTML = resp.data.songPlaying.track
+                    document.querySelector(".text_one p").innerHTML = resp.data.songPlaying.artist
+                    audio.src = resp.data.songPlaying.song;
+                    audio.play();
+                    if (resp.data.prod) {
+                        document.querySelector(".text_heart").innerHTML = `<a href="" class="like_sec"><i class="ri-heart-fill "style="color: #1DB954;"></i></a>`
+                    }
+                    else {
+                        document.querySelector(".text_heart").innerHTML = `<a href="" class="like_sec"><i class="ri-heart-line"></i></a>`
+
+                    }
+                    document.querySelector(".side_img img").src = resp.data.songPlaying.image;
+                    document.querySelector(".like_sec").setAttribute("href", `/add/like/${resp.data.songPlaying._id}`);
+                    var newClutter = "";
+                    resp.data.user.playlist.forEach(function (det) {
+                        newClutter += `<div class="listPlay addtoplaylist">
+                                            <a id="addtolist" href="/playlist/${det._id}/song/${id}">${det.playlist}</a>
+                                        </div>`
+
+                    })
+                    document.querySelector(".options_playlist").innerHTML = newClutter;
+
+
+                })
+
+                document.querySelector(".player_bot").style.bottom = "0";
+            })
+        })
+        var arrow = 0;
+        document.querySelector(".down_arrow").addEventListener("click", function () {
+            if (arrow == 0) {
+                document.querySelector(".player_bot").style.bottom = "-12%";
+                document.querySelector(".down_arrow").style.transform = "rotate(180deg)";
+                document.querySelector(".down_arrow").style.top = "-35%";
+                arrow = 1;
+            }
+            else {
+                arrow = 0;
+                document.querySelector(".player_bot").style.bottom = "0%";
+                document.querySelector(".down_arrow").style.transform = "rotate(0deg)"
+                document.querySelector(".down_arrow").style.top = "-15%";
+
+
+            }
+        })
+
+
+
+        const volumeControl = document.querySelector('#volume-control');
+        const repeatbtn = document.querySelector(".repeat");
+        var flag = 0;
+        repeatbtn.addEventListener("click", function (re) {
+            if (flag == 0) {
+                flag = 1;
+                audio.setAttribute("loop", "");
+                repeatbtn.style.color = "#fff"
+            }
+            else {
+                flag = 0;
+                audio.removeAttribute("loop");
+                repeatbtn.style.color = "grey"
+
+            }
+        })
+        function updateVolume() {
+            audio.volume = volumeControl.value;
+            if (audio.volume == 0) {
+                document.querySelector(".mutebtn").style.display = "block"
+                document.querySelector(".volbtn").style.display = "none"
+            }
+            else {
+                document.querySelector(".volbtn").style.display = "block"
+                document.querySelector(".mutebtn").style.display = "none"
+
+
+            }
+        }
+
+
+        volumeControl.addEventListener('input', () => {
+            updateVolume();
+
+        });
+
+        // var Categories = [{ name: "Lofi-Songs", img: "lofi.jpg", route: "lofi", desc: "Typically consisting of non-lyrical music and looped, distorted samples" }, { name: "Romantic-Songs", img: "roma.jpg", route: "romantic", desc: "A love song is a song about romantic love, falling in love" }
+        //     , { name: "Sad-Songs", img: "sad.jpg", route: "sad", desc: "Lower overall pitch, narrow pitch range, slower tempo" }, { name: "Punjabi-Songs", img: "punj.jpg", route: "punjabi", desc: "Punjabi music's immense popularity is its music, beats and composition" }, { name: "Pop-Songs", img: "pop.jpg", route: "pop", desc: "Music that is popular in the mainstream." }
+        //     , { name: "Bhakti-Songs", img: "bhakti.jpg", route: "bhakti", desc: " Devotional song with a religious theme or spiritual ideas" }, { name: "Patriotic-Songs", img: "patr.jpg", route: "patriotic", desc: "A patriotic song is one which inspires feelings of pride in one's country" }];
+
+        var Categories = [{ name: "Lofi-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664020/ALL_PHOTO_OF_SPOTIFY/lofi_h2k84n.jpg", route: "lofi", desc: "Typically consisting of non-lyrical music and looped, distorted samples" }, { name: "Romantic-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/roma_y36wok.jpg", route: "romantic", desc: "A love song is a song about romantic love, falling in love" }
+            , { name: "Sad-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/sad_fvoyz8.jpg", route: "sad", desc: "Lower overall pitch, narrow pitch range, slower tempo" }, { name: "Punjabi-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664021/ALL_PHOTO_OF_SPOTIFY/punj_vly3yy.jpg", route: "punjabi", desc: "Punjabi music's immense popularity is its music, beats and composition" }, { name: "Pop-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/pop_ic6ruz.jpg", route: "pop", desc: "Music that is popular in the mainstream." }
+            , { name: "Bhakti-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664020/ALL_PHOTO_OF_SPOTIFY/bhakti_fermlk.jpg", route: "bhakti", desc: " Devotional song with a religious theme or spiritual ideas" }, { name: "Patriotic-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664020/ALL_PHOTO_OF_SPOTIFY/patr_tlsaay.jpg", route: "patriotic", desc: "A patriotic song is one which inspires feelings of pride in one's country" }];
+
+        var clutter = "";
+        Categories.forEach(function (det) {
+            clutter += `<div class="song_card ">
+                                <a href="/categories/${det.route}">
+                                    <div class="song_card_temp">
+                                        <div class="playbtn"><i class="ri-play-fill"></i></div>
+
+                                        <div class="song_img ">
+                                            <img src="${det.img}" alt="">
+                                        </div>
+                                        <div class="song_body ">
+                                            <h6>${det.name}</h6>
+                                            <p>${det.desc}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>`
+        });
+        document.querySelector(".clutter_in").innerHTML = clutter;
+
+
+
+
+
+
+
+
+        var allsongclick = 0;
+        var songsclutter = "";
+        document.querySelector(".allsongsshow").addEventListener("click", function () {
+            if (allsongclick == 0) {
+                allsongclick = 1;
+                document.querySelector(".showingallsongs").style.display = "block";
+                document.querySelector(".right_part").style.display = "none";
+                axios.get("/songs/data").then(function (allsongs) {
+                    allsongs.data.forEach(function (songs) {
+                        songsclutter += `<div class="song_card"  id="pointerevents">
+                                <div class="song_card_temp"  id="pointerevents">
+                                    <div class="playbtn"><i class="ri-play-fill"></i></div>
+                                    <div class="song_img"  id="pointerevents">
+                                        <img src="${songs.image}" alt="">
+                                    </div>
+
+                                    <div class="song_body"  id="pointerevents">
+                                        <h6>
+                                            ${songs.track}
+                                        </h6>
+                                        <p>
+                                             ${songs.artist}
+
+                                        </p>
+                                    </div>
+                                    
+                                        <div class="editsbtn d-flex gap-4">
+                                            <a href="/edit/song/${songs._id}" class="btn btn-primary">Edit</a>
+                                            <a href="/delete/song/${songs._id}" class="btn btn-danger">Delete</a>
+                                        </div>
+
+                                    
+                                </div>
+                            
+
+                        </div>`
+                    })
+                    document.querySelector(".showmesongs").innerHTML = songsclutter;
+                })
+            }
+            else {
+                songsclutter = "";
+                allsongclick = 0;
+                document.querySelector(".right_part").style.display = "initial";
+                document.querySelector(".showingallsongs").style.display = "none";
+            }
+        })
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

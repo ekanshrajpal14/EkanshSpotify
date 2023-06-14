@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify || Ekansh</title>
+    <link rel="shortcut icon"
+        href="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664021/ALL_PHOTO_OF_SPOTIFY/Sp_logo_feklmx.png"
+        type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <style>
+        .playlist::-webkit-scrollbar {
+            display: none;
+        }
+
+        .playlist {
+            gap: 7px;
+            justify-content: flex-start;
+            overflow-x: hidden;
+            padding: .3vw 0;
+            overflow-y: scroll;
+            max-height: 15.5vh;
+        }
+
+        .listdiffer2 {
+            border-bottom: 1px solid grey;
+            margin-bottom: 1vw;
+        }
+
+        .listPlay {
+            width: 9vw;
+            height: 4vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .listPlay a {
+            color: grey;
+            transition: .3s;
+        }
+
+        .listPlay:hover a {
+            color: #fff;
+        }
+
+        .delbtn {
+            opacity: 0;
+        }
+
+        .delbtn:hover {
+            color: rgb(255, 100, 100) !important;
+        }
+
+        .listPlay:hover .delbtn {
+            opacity: 1;
+        }
+
+        .right_lnav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search input {
+            padding: .3vw 1vw;
+            font-size: 1vw;
+            width: 27vw;
+
+            outline: none;
+            border: none;
+            height: 5vh;
+        }
+
+        .search {
+            width: 30vw;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 2%;
+            left: 5%;
+            height: 5vh;
+            overflow: hidden;
+            border-radius: 20px;
+            display: flex;
+            background-color: #ffffff;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+        }
+
+        .search i {
+            font-size: 1.6vw;
+            color: #000000;
+        }
+
+        #noresult {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="../stylesheets/common.css">
+
+    <link rel="stylesheet" href="../stylesheets/spotify.css">
+    <link rel="stylesheet" href="../stylesheets/playResp.css">
+</head>
+
+<body>
+
+
+
+    <div class="main">
+        
+        <div class="sideSetBar ">
+            <div class="crossBtnSet" onclick="closeSet()"><i class="ri-close-line"></i></div>
+            <div class="sideArea">
+                <div class="onesideArea">
+                    <div class="text_div">
+                        <a href="/myaccount">Profile<i class="ri-arrow-right-up-line"></i></a>
+                    </div>
+                    <div class="text_div">
+                        <a href="/logout">Logout</a>
+                    </div>
+                    <div class="hrline"></div>
+                    <div class="onesideArea1">
+                        <h2>Premium</h2>
+                        <h2>Support</h2>
+                        <h2>Downlaod</h2>
+                        <h2>Privacy</h2>
+                        <h2>Terms</h2>
+                    </div>
+                </div>
+        
+        
+            </div>
+        </div>
+        <div class="page1">
+            <div class="left_placeholder"></div>
+            <div class="left">
+                <div class="logo" id="logoresp">
+                    <img src="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/spologo_tcowjk.png" alt="">
+                </div>
+                <div class="list listdiffer">
+                    <div class="item active">
+                        <a href="/spotify" class="left_a"><i class="ri-home-4-fill"></i>
+                            <h3>Home</h3>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="/search"><i class="ri-search-line"></i>
+                            <h3>Search</h3>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a href="/allsongs"><i class="ri-music-fill text-light"></i>
+                            <h3>All Songs</h3>
+                        </a>
+                    </div>
+                    <div class="item comingsoon">
+                        <span><i class="ri-arrow-up-double-line"></i>
+                            <h3>More</h3>
+                        </span>
+                    </div>
+                </div>
+                <div class="list listdiffer2">
+                    <div class="item">
+                        <span class="left_a"><i class="ri-add-box-fill"></i>
+                            <h3 class="create text-light">Create Playlist</h3>
+                        </span>
+                    </div>
+                    <div class="item">
+                        <a href="/likedsongs" class="left_a"><i class="ri-heart-fill"></i>
+                            <h3>Liked Songs</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="list playlist playlistjs">
+
+
+
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="right_nav">
+                    <div class="right_lnav right_nav_comman ">
+
+                    </div>
+                    <div class="right_rnav right_nav_comman">
+                        <div class="right_auth" style="width:21vw">
+                            <div class="nav_log ">
+                                <h6 style="color: #fff;" class="d-flex align-items-center "> <i
+                                        style="font-size: 1.5vw;margin-right: .5vw;" class="ri-user-fill"></i>
+                                    <a id="myAcc" href="/myaccount">
+                                        <%= user.name %>
+                                    </a>
+                                </h6>
+
+                            </div>
+                            <div class="logout mx-4 ">
+                                <a href="/logout" class="btn btn-primary ">Logout</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="right_part">
+                    <div class="right_layer1">
+                        <div class="layer1_line search_modify ">
+
+                            <h2 class="text-light ">Your Search Results</h2>
+
+
+                        </div>
+                        <div class="search search_resp">
+                            <i class="ri-search-line"></i>
+                            <input type="text" name="" id="input" placeholder="What do you want to listen to?">
+
+                        </div>
+
+                        <div class="layer1_songs layer_songs_modify"></div>
+                    </div>
+                    <h1 id="noresult">Sorry!! No Such Song is there...</h1>
+                </div>
+            </div>
+            <div class="top_mobile">
+                <div class="top_logo">
+                                <img src="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/spologo_tcowjk.png" alt="">
+
+                </div>
+                <div class="set" onclick="openSet()">
+                    <i class="ri-settings-5-line"></i>
+                </div>
+            </div>
+        </div>
+        <div class="player_bot">
+            <div class="down_arrow">
+                <i class="ri-arrow-down-s-fill"></i>
+            </div>
+            <div class="one">
+                <div class="side_img">
+                    <img src="" alt="">
+                </div>
+                <div class="one_cont">
+                    <div class="text_one ">
+                        <a href="" id="songnamehere"></a><i class="ri-music-fill text-light"></i>
+                        <p></p>
+
+                    </div>
+                    <div class="text_heart">
+                        <div class="like_sec" data-likesec=""></div>
+                        <!-- <a href=""><i class="ri-play-list-add-line"></i></a> -->
+                    </div>
+                    <div class="text_playlist text_one_com">
+                        <div class="options_playlist p-3">
+                        </div>
+                        <i class="ri-play-list-add-line playlisticon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="two">
+                <audio src="" id="aud" controls controlsList="nodownload"></audio>
+            </div>
+            <div class="three">
+                <i class="ri-repeat-2-line repeat mx-3"></i>
+                <i class="ri-share-line share_line"></i>
+
+                <div class="vol">
+                    <i class="ri-volume-mute-line mutebtn"></i>
+                    <i class="ri-volume-up-line volbtn"></i>
+                    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="1">
+
+                </div>
+            </div>
+            <div class="extraForResp">
+                <div class="resp_arrow"><i class="ri-arrow-up-s-line "></i></div>
+                <!-- <div class="resp_pause"><i class="ri-pause-mini-line pauseBtn"></i></div> -->
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="foot_image">
+        
+            </div>
+            <div class="foot_cont">
+                <div class="foot_section">
+                    <div class="foot_one footcomman">
+                        <h2>Information</h2>
+                        <h3>Spotify Clone</h3>
+                        <h3>About</h3>
+                        <h3>Support</h3>
+                        <h3>Upcoming Features</h3>
+        
+                    </div>
+                    <div class="foot_one footcomman">
+                        <h2>Admin's Info</h2>
+                        <h3>-By Ekansh Rajpal</h3>
+                        <h3>Feedback</h3>
+                        <h3>Suggestions on below email</h3>
+                        <h3>Email - itsekku13@gmail.com</h3>
+                    </div>
+                    <div class="foot_one footcomman">
+                        <h2>Purpose</h2>
+                        <h3>Educational Purpose Only</h3>
+                        <h3>Under Fair Use Section </h3>
+                        <h3>Follow us </h3>
+                        <h3>Youtube (Subscribe us)</h3>
+        
+                    </div>
+                </div>
+                <div class="foot_social">
+                    <a href="https://www.instagram.com/e.k.a.n.s.h.r.a.j.p.a.l/">
+                        <div class="foot_insta"><i class="ri-instagram-line"></i></div>
+                    </a>
+                    <a href="https://www.youtube.com/@rkrfacts21">
+                        <div class="foot_insta"><i class="ri-youtube-fill"></i></div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ekansh-rajpal-918a7720a/">
+                        <div class="foot_insta"><i class="ri-linkedin-fill"></i></div>
+                    </a>
+        
+                </div>
+            </div>
+            <div class="foot_last">
+                <h3>© 2023 Spotify AB</h3>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"
+        integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        function searchopt(val) {
+            axios.get(`/search/${val}`).then(function (dets) {
+                // console.log(dets.data);
+                var cluttersearch = "";
+
+                if (dets.data.length < 1) {
+                    document.querySelector("#noresult").style.display = "block";
+                    document.querySelector(".layer1_songs").innerHTML = "";
+
+                }
+                else {
+
+                    document.querySelector("#noresult").style.display = "none";
+
+                    dets.data.forEach(element => {
+                        cluttersearch += ` <div class="song_card song_card_route" data-name="${element._id}">
+                                
+                                <div class="song_card_temp">
+                                    <div class="playbtn"><i class="ri-play-fill"></i></div>
+                                    <div class="song_img">
+                                        <img src="${element.image}" alt="">
+                                    </div>
+                                    <div class="song_body">
+                                        <h6>${element.track}</h6>
+                                        <p>${element.artist}</p>
+                                    </div>
+                                </div>
+                                
+
+                            </div>`
+                        document.querySelector(".layer1_songs").innerHTML = cluttersearch;
+
+
+                    });
+                }
+                reValueDiv();
+            })
+        }
+        document.querySelector("#input").addEventListener("input", function () {
+            const trimmedValue = document.querySelector("#input").value.replace(/[^\w\s]/gi, '');
+
+            var val = trimmedValue.trim();
+            if (val == "") {
+                document.querySelector(".search").style.border = "2px solid red";
+                document.querySelector(".layer1_songs").innerHTML = "";
+            }
+            else {
+                document.querySelector(".search").style.border = "none";
+
+                searchopt(val)
+
+            }
+
+        })
+        document.querySelector(".right").addEventListener("click", function () {
+            document.querySelector(".search").style.border = "none";
+
+        })
+        var likeflag = 0;
+        var songcard = []
+        var audio;
+        function reValueDiv() {
+            songcard = document.querySelectorAll(".song_card_route");
+            audio = document.querySelector("#aud");
+            songcard = [...songcard];
+            // console.log(songcard);
+
+            SongCardRoute(songcard)
+        }
+
+        // somgs playing area  
+        function SongCardRoute(songcard) {
+            songcard.forEach(function (dets) {
+
+                dets.addEventListener("click", function (elem) {
+
+                    // var id = elem.target.dataset.name;
+                    var id = this.getAttribute('data-name')
+
+
+                    axios.get(`/play/${id}`).then(function (resp) {
+                        likeflag = 1;
+                        document.querySelector("#songnamehere").innerHTML = resp.data.songPlaying.track
+                        document.querySelector(".text_one p").innerHTML = resp.data.songPlaying.artist
+                        audio.src = resp.data.songPlaying.song;
+                        audio.play();
+                        if (resp.data.prod) {
+
+                            document.querySelector(".like_sec").innerHTML = `<i class="ri-heart-fill "style="color: #1DB954;"></i>`
+                            // document.querySelector(".text_heart").innerHTML = `<a href="" class="like_sec"><i class="ri-heart-fill "style="color: #1DB954;"></i></a>`
+                        }
+                        else {
+                            document.querySelector(".like_sec").innerHTML = `<i class="ri-heart-line"></i>`
+
+                            // document.querySelector(".text_heart").innerHTML = `<a href="" class="like_sec"><i class="ri-heart-line"></i></a>`
+
+                        }
+
+                        document.querySelector(".side_img img").src = resp.data.songPlaying.image;
+
+                        document.querySelector(".like_sec").dataset.likesec = `${resp.data.songPlaying._id}`;
+
+
+                        // document.querySelector(".like_sec").setAttribute("href", `/add/like/${resp.data.songPlaying._id}`);
+                        var newClutter = "";
+                        resp.data.user.playlist.forEach(function (det) {
+                            newClutter += `<div class="listPlay addtoplaylist">
+                                            <a id="addtolist" href="/playlist/${det._id}/song/${id}">${det.playlist}</a>
+                                        </div>`
+
+                        })
+                        document.querySelector(".options_playlist").innerHTML = newClutter;
+
+
+                    })
+                    if (window.screen.width > 600) {
+                        document.querySelector(".player_bot").style.bottom = "0";
+
+                    }
+                    else {
+                        document.querySelector(".player_bot").style.bottom = "9.5vh";
+
+                    }
+                })
+            })
+
+        }
+    </script>
+    <script src="../javascripts/playerCom.js"></script>
+
+    <script src="../javascripts/common.js"></script>
+
+</body>
+
+</html>

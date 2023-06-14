@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spotify || Ekansh</title>
+    <link rel="shortcut icon"
+      href="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664021/ALL_PHOTO_OF_SPOTIFY/Sp_logo_feklmx.png"
+      type="image/x-icon">
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <link rel="stylesheet" href="../stylesheets/respindex.css">
+
+</head>
+
+<body>
+
+  <div class="main">
+    <div class="page1">
+      <div class="left_placeholder"></div>
+      <div class="left">
+        <div class="logo" id="logoresp">
+          <a href="/">
+            <img
+              src="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/spologo_tcowjk.png"
+              alt="">
+
+          </a>
+        </div>
+        <div class="list listdiffer">
+          <div class="item active">
+            <a href="/spotify"><i class="ri-home-4-fill"></i>
+              <h3>Home</h3>
+            </a>
+          </div>
+          <div class="item">
+            <a href="/search"><i class="ri-search-line"></i>
+              <h3>Search</h3>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href=""><i class="ri-contacts-book-upload-line"></i>
+              <h3>Your Library</h3>
+            </a>
+          </div>
+          <div class="item comingsoon">
+            <a href=""><i class="ri-google-play-line"></i>
+              <h3>Get App</h3>
+            </a>
+          </div>
+        </div>
+        <div class="list listdiffer2">
+          <div class="item">
+            <a href="/createplaylist"><i class="ri-add-box-fill"></i>
+              <h3>Create Playlist</h3>
+            </a>
+          </div>
+          <div class="item">
+            <a href="/likedsongs"><i class="ri-heart-fill"></i>
+              <h3>Liked Songs</h3>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right_nav">
+          <div class="right_lnav right_nav_comman">
+            <div class="top_logo">
+              <img src="../images/spologo.png" alt="">
+            </div>
+          </div>
+          <div class="right_rnav right_nav_comman">
+            <div class="right_auth">
+              <div class="nav_sign">
+                <a href="/sign">Sign up</a>
+              </div>
+              <div class="nav_log">
+                <a href="/login">Log in</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right_part">
+          <div class="right_layer1">
+            <div class="layer1_line">
+              <a href="">
+                <h2>Trending Songs</h2>
+              </a>
+              <a href="">Show all</a>
+            </div>
+
+            <div class="layer1_songs">
+              <% song.forEach(function(dets){ %>
+
+                <div class="song_card">
+                  <a href="/playing/<%=dets._id%>">
+                    <div class="song_card_temp">
+                      <div class="playbtn"><i class="ri-play-fill"></i></div>
+                      <div class="song_img">
+                        <img src="<%=dets.image%>" alt="">
+                      </div>
+                      <div class="song_body">
+                        <h6>
+                          <%=dets.track %>
+                        </h6>
+                        <p>
+                          <%=dets.artist%>
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <% }) %>
+
+
+            </div>
+          </div>
+          <div class="right_layer2">
+            <div class="layer1_line">
+              <a href="">
+                <h2>Focus</h2>
+              </a>
+              <a href="">Show all</a>
+            </div>
+
+            <div class="layer1_songs clutter_in">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="top_mobile">
+        <div class="top_logo">
+          <img
+            src="https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/spologo_tcowjk.png"
+            alt="">
+
+        </div>
+        <div class="set">
+          <i class="ri-settings-5-line"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="foot_image">
+    
+      </div>
+      <div class="foot_cont">
+        <div class="foot_section">
+          <div class="foot_one footcomman">
+            <h2>Information</h2>
+            <h3>Spotify Clone</h3>
+            <h3>About</h3>
+            <h3>Support</h3>
+            <h3>Upcoming Features</h3>
+    
+          </div>
+          <div class="foot_one footcomman">
+            <h2>Admin's Info</h2>
+            <h3>-By Ekansh Rajpal</h3>
+            <h3>Feedback</h3>
+            <h3>Suggestions on below email</h3>
+            <h3>Email - itsekku13@gmail.com</h3>
+          </div>
+          <div class="foot_one footcomman">
+            <h2>Purpose</h2>
+            <h3>Educational Purpose Only</h3>
+            <h3>Under Fair Use Section </h3>
+            <h3>Follow us </h3>
+            <h3>Youtube (Subscribe us)</h3>
+    
+          </div>
+        </div>
+        <div class="foot_social">
+          <a href="https://www.instagram.com/e.k.a.n.s.h.r.a.j.p.a.l/">
+            <div class="foot_insta"><i class="ri-instagram-line"></i></div>
+          </a>
+          <a href="https://www.youtube.com/@rkrfacts21">
+            <div class="foot_insta"><i class="ri-youtube-fill"></i></div>
+          </a>
+          <a href="https://www.linkedin.com/in/ekansh-rajpal-918a7720a/">
+            <div class="foot_insta"><i class="ri-linkedin-fill"></i></div>
+          </a>
+    
+        </div>
+      </div>
+      <div class="foot_last">
+        <h3>© 2023 Spotify AB</h3>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script>
+    // var Categories = [{ name: "Lofi-Songs", img: "lofi.jpg", route: "lofi", desc: "Typically consisting of non-lyrical music and looped, distorted samples" }, { name: "Romantic-Songs", img: "roma.jpg", route: "romantic", desc: "A love song is a song about romantic love, falling in love" }
+    //   , { name: "Sad-Songs", img: "sad.jpg", route: "sad", desc: "Lower overall pitch, narrow pitch range, slower tempo" }, { name: "Punjabi-Songs", img: "punj.jpg", route: "punjabi", desc: "Punjabi music's immense popularity is its music, beats and composition" }, { name: "Pop-Songs", img: "pop.jpg", route: "pop", desc: "Music that is popular in the mainstream." }
+    //   , { name: "Bhakti-Songs", img: "bhakti.jpg", route: "bhakti", desc: " Devotional song with a religious theme or spiritual ideas" }, { name: "Patriotic-Songs", img: "patr.jpg", route: "patriotic", desc: "A patriotic song is one which inspires feelings of pride in one's country" }];
+    var Categories = [{ name: "Lofi-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664020/ALL_PHOTO_OF_SPOTIFY/lofi_h2k84n.jpg", route: "lofi", desc: "Typically consisting of non-lyrical music and looped, distorted samples" }, { name: "Romantic-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/roma_y36wok.jpg", route: "romantic", desc: "A love song is a song about romantic love, falling in love" }
+      , { name: "Sad-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/sad_fvoyz8.jpg", route: "sad", desc: "Lower overall pitch, narrow pitch range, slower tempo" }, { name: "Punjabi-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664021/ALL_PHOTO_OF_SPOTIFY/punj_vly3yy.jpg", route: "punjabi", desc: "Punjabi music's immense popularity is its music, beats and composition" }, { name: "Pop-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664022/ALL_PHOTO_OF_SPOTIFY/pop_ic6ruz.jpg", route: "pop", desc: "Music that is popular in the mainstream." }
+      , { name: "Bhakti-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664020/ALL_PHOTO_OF_SPOTIFY/bhakti_fermlk.jpg", route: "bhakti", desc: " Devotional song with a religious theme or spiritual ideas" }, { name: "Patriotic-Songs", img: "https://res.cloudinary.com/dzotxhnz0/image/upload/v1686664020/ALL_PHOTO_OF_SPOTIFY/patr_tlsaay.jpg", route: "patriotic", desc: "A patriotic song is one which inspires feelings of pride in one's country" }];
+
+    var clutter = "";
+    Categories.forEach(function (det) {
+      clutter += `<div class="song_card">
+                                <a href="/categories/${det.route}">
+                                    <div class="song_card_temp">
+                                        <div class="playbtn"><i class="ri-play-fill"></i></div>
+
+                                        <div class="song_img">
+                                            <img src="${det.img}" alt="">
+                                        </div>
+                                        <div class="song_body">
+                                            <h6>${det.name}</h6>
+                                            <p>${det.desc}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>`
+    });
+    document.querySelector(".clutter_in").innerHTML = clutter;
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<div class="play_pause">
+                    <div class="butns">
+                        <i class="ri-shuffle-line"></i>
+                        <i class="ri-skip-back-fill"></i>
+                        <div class="playbtns">
+                            <i class="ri-play-circle-fill"></i>
+                            <i class="ri-pause-circle-fill"></i>
+                            <i class="ri-stop-circle-fill"></i>
+                        </div>
+                        <i class="ri-skip-forward-fill"></i>
+                        <i class="ri-repeat-2-line"></i>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                  .play_pause {
+            width: 100%;
+            height: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .butns{
+            width: 20vw;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .playbtns{
+            display: flex;
+            align-items: center;
+            height: 100%;
+            gap: 10px;
+        }
+        .butns i{
+            font-size: 2vw;
+            color: #fff;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if(user.productid._id === song._id){ %>
+                        <a href="" class="like_sec"><i class="ri-heart-fill"></i></a>
+                            
+                        <% } else{ %>
+                        <a href="" class="like_sec"><i class="ri-heart-line"></i></a>
+                        <% } %>
+
+
+
+
+
+
+
+                        <% user.productid.forEach(function(dets){ %>
+                              <% if(dets._id == song._id){ %>
+                           <a href=""><i class="ri-heart-fill"></i></a>
+
+                              
+                             <% } else{ %>
+                           <a href=""><i class="ri-heart-line"></i></a>
+                             <% } %>
+
+                          <%  })%>
+
+
+
+
+
+
+                          <a href="/deleteplaylist/<%=play._id %>">dellist</a>
+
+
+
+
+
+
+
+
+
+
+
+ <!-- <% if(user.userdp !== ""){ %> -->
+                                        <!-- <img src="<%=user.userdp%>" alt=""> -->
+
+                                        <!-- <% } else{ %> -->
+
+
+
+
+
+                                        <% user.playlist.reverse().forEach(function(play){ %>
+                        <div class="listPlay d-flex ">
+                            <a href="/openplaylist/<%=play._id %>">
+                                <%= play.playlist %>
+                            </a>
+                            <a href="/deleteplaylist/<%=play._id %>" class="delbtn"><i
+                                    class="ri-delete-bin-6-line"></i></a>
+                        </div>
+                        <% }) %>

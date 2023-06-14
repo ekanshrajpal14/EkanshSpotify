@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html,body{
+                width: 100%;
+                height: 100%;
+            }
+            .main{
+                width: 100%;
+                height: 120vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .con{
+                width: 40vw;
+                height: auto;
+            }
+            .con h1{
+                color: rgb(0, 150, 40);
+                margin-left: -2vw;
+                margin-bottom: 2vw;
+            }
+        </style>
+</head>
+
+<body>
+    
+
+    <div class="main ">
+
+        <div class="con ">
+            <h1 >Upload Your Song</h1>
+            <form action="/song/upload" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Artist Name</label>
+                    <input type="text" class="form-control " id="exampleFormControlInput1" placeholder="Name" name="artist">
+                </div><div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="itsekku13@gmail.com" name="email">
+                </div><div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Track Name</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="track Name" name="track">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Album Name</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Album Name" name="album">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Finder Name also can be a line</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Finder Name" name="finder">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect01">Song Categories</label>
+                    <select class="form-select" id="inputGroupSelect01" name="categories">
+                        <option selected>Choose Song Categories</option>
+                        <option value="lofi">Lo-fi Songs</option>
+                        <option value="romantic">Romantic Songs</option>
+                        <option value="sad">Sad Songs</option>
+                        <option value="punjabi">Punjabi Songs</option>
+                        <option value="pop">Pop Songs</option>
+                        <option value="bhakti">Bhakti Songs</option>
+                        <option value="patriotic">Patriotic Songs</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label fw-bold">Upload Image Template</label>
+                    <input class="form-control" type="file" id="formFile" name="template">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label fw-bold">Upload Song</label>
+                    <input class="form-control" type="file" id="formFile" name="song">
+                </div>
+                <div class="mb-3 " >
+                    
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

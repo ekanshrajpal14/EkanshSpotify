@@ -1,0 +1,95 @@
+@media screen and (max-width:600px) {
+    .right_part {
+        height: auto;
+    }
+
+    .top_play {
+        flex-direction: column;
+    }
+
+    .top_play_left {
+        width: 100%;
+        height: 50%;
+        padding-top: 2vh;
+        justify-content: center;
+    }
+
+    .play_img_box {
+        width: 210px;
+        height: 210px;
+    }
+
+    .elsediv i {
+        font-size: 20vw !important;
+    }
+
+    .top_play_right {
+        height: 11vh;
+        width: 100%;
+    }
+
+    .row1_btns>span>i {
+        font-size: 8.7vw;
+    }
+
+    .profile {
+        width: 100vw;
+        left: 12%;
+    }
+
+    .play_text_box {
+        align-items: center;
+    }
+
+    .allPlaylist {
+        width: auto;
+        flex-wrap: nowrap;
+        overflow: scroll;
+        gap: 30px;
+        align-items: normal;
+    }
+
+    .songs_play_list {
+        display: block;
+    }
+
+    .none_title {
+        display: none;
+    }
+
+    .start_title {
+        width: 50vw;
+
+    }
+
+    .newonestart {
+        margin-left: 7vw;
+    }
+
+    .title_text h5 {
+        font-size: 4vw;
+    }
+
+    .title_text p {
+        font-size: 2.9vw;
+    }
+
+    .title_text {
+        height: 4.5vh;
+    }
+
+    .songs_line_title .title_line p {
+        font-size: 3vw;
+    }
+
+
+    /*playlist wala part */
+
+    .iconResp i {
+        font-size: 7vw !important;
+    }
+
+    .extMargin{
+        margin-left:6vw ;
+    }
+}

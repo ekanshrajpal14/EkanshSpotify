@@ -1,0 +1,527 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: CircularSp;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+@font-face {
+    font-family: CircularSp;
+    src: url(https://res.cloudinary.com/dzotxhnz0/raw/upload/v1686690485/ALL_PHOTO_OF_SPOTIFY/CircularSp-Book-4eaffdf96f4c6f984686e93d5d9cb325_z2yaa1.ttf);
+}
+
+.comingsoon {
+    display: none;
+}
+
+.list .comingsoon {
+    display: none;
+}
+
+
+/* playlist name adjust span */
+.active>.left_a {
+    color: #fff !important;
+
+}
+
+.item .left_a {
+    display: flex;
+    align-items: center;
+    color: #bebebe;
+    cursor: pointer;
+    text-decoration: none;
+    justify-content: center;
+    gap: 10px;
+}
+
+.item .left_a:hover {
+    color: #fff;
+}
+
+.item .left_a i {
+    font-size: 1.5vw;
+}
+
+.item a i {
+    font-size: 1.5vw;
+}
+
+
+.item .left_a h3 {
+    font-size: 1vw;
+    margin-bottom: .2vw;
+}
+
+
+
+.unable {
+    cursor: not-allowed;
+    background-color: #595959;
+}
+
+/* player bot */
+.song_card_route {
+    cursor: pointer;
+}
+
+.player_bot {
+    width: 100%;
+    height: 12vh;
+    background-color: rgba(0, 0, 0, 0.742);
+    position: fixed;
+    bottom: -40%;
+    z-index: 99999;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    border-top: 1px solid grey;
+    transition: .4s;
+}
+
+.one {
+    width: 28vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.two {
+    width: 38vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.three {
+    width: 28vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.one_cont {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* letter-spacing: 1px; */
+}
+
+.one_cont a {
+    font-size: 1.5vw;
+
+}
+
+.text_one p {
+    text-transform: lowercase;
+    color: grey;
+    font-size: .9vw;
+
+}
+
+.text_heart {
+    height: 4vh;
+}
+
+.text_playlist {
+    position: relative;
+    height: 4vh;
+    padding-left: .6vw;
+}
+
+.text_heart i {
+    color: #fff;
+    font-size: 1.4vw;
+}
+
+.text_playlist i {
+    color: #fff;
+    font-size: 1.4vw;
+}
+
+#aud {
+    width: 100%;
+    background: black;
+    height: 70%;
+}
+
+.side_img {
+    width: 60px;
+    height: 60px;
+    background-color: aliceblue;
+}
+
+.side_img img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.vol {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vol i {
+    font-size: 1.4vw;
+    color: #fff;
+}
+
+.mutebtn {
+    display: none;
+}
+
+.three .repeat {
+    cursor: pointer;
+    color: grey;
+}
+
+.down_arrow {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    right: 1%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -15%;
+}
+
+.down_arrow i {
+    font-size: 1.5vw;
+    color: #000000;
+}
+
+.options_playlist::-webkit-scrollbar {
+    display: none;
+}
+
+.options_playlist {
+    position: absolute;
+    bottom: 3vh;
+    display: none;
+    z-index: 9;
+    width: auto;
+    opacity: 1;
+    max-height: 50vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #000000;
+    left: 0;
+}
+
+.text_playlist i {
+    z-index: 99999;
+    cursor: pointer;
+    position: relative;
+}
+
+.text_playlist:hover .options_playlist {
+    display: block;
+    cursor: pointer;
+}
+
+#addtolist {
+    font-size: 1vw;
+}
+
+.addtoplaylist {
+    width: 6vw;
+}
+
+
+
+/* adding things in all  */
+
+.top_mobile {
+    display: none;
+}
+
+.right .top_logo {
+    display: none;
+}
+
+.comingsoon {
+    display: none;
+}
+
+.sideSetBar {
+    display: none;
+}
+
+
+
+
+/* footer wala part  */
+
+
+.footer {
+    width: 82%;
+    /* border-top: 3px solid #a5a5a5; */
+    height: 40vh;
+    background-color: #232323;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+}
+
+.foot_image {
+    width: 80%;
+    height: 100%;
+    opacity: .2;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    background-image: url(https://res.cloudinary.com/dzotxhnz0/image/upload/v1686773869/ALL_PHOTO_OF_SPOTIFY/ek_mbim2o.png);
+    background-size: cover;
+    background-position: center;
+
+}
+
+.foot_cont {
+    display: flex;
+    width: 100%;
+    z-index: 999;
+    position: relative;
+    height: 70%;
+}
+
+.foot_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 70%;
+    height: 100%;
+}
+
+.foot_one {
+    width: 17vw;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.foot_one>h2 {
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.2vw;
+}
+
+.foot_one>h3 {
+    font-weight: lighter;
+    color: #a9a9a9;
+    transition: .4s;
+    font-size: 1.2vw;
+}
+
+.footcomman h3:hover {
+    color: #ffff;
+    cursor: pointer;
+}
+
+
+.foot_social {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.foot_insta {
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    border-radius: 100%;
+    transition: .4s;
+    background-color: rgb(66, 66, 66);
+}
+
+.foot_social a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.foot_insta>i {
+    color: #fff;
+
+    font-size: 2vw;
+}
+
+.foot_insta:hover {
+    background-color: #000000;
+}
+
+.foot_last {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #6d6d6d;
+}
+
+.foot_last>h3 {
+    margin-top: .8vw;
+    color: #a9a9a9;
+    font-size: 1.1vw;
+    font-weight: lighter;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* resp common  */
+
+
+
+@media screen and (max-width:600px) {
+
+    /* new part added instead of get app */
+    .comingsoon span {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        justify-content: space-evenly;
+        display: flex;
+        align-items: center;
+        color: #bebebe;
+        cursor: pointer;
+    }
+
+    .comingsoon span h3 {
+        font-size: 3vw;
+    }
+
+    .comingsoon span i {
+        font-size: 8.5vw;
+        margin-top: -3vw;
+    }
+
+    .listdiffer2 {
+        position: fixed;
+        border-bottom: none !important;
+        display: none;
+        right: 0;
+        width: 30vw;
+        background-color: #000000;
+        bottom: 7vh;
+    }
+
+
+    .listdiffer2 .item a {
+        flex-direction: row;
+        justify-content: normal;
+        gap: 5px;
+    }
+
+    .listdiffer2 .item {
+        display: block;
+        width: 100%;
+    }
+
+
+
+
+
+    /* footer part resp */
+
+    .footer {
+        width: 100%;
+        height: 42vh;
+    }
+
+    .foot_cont {
+        display: block;
+
+        height: 60%;
+    }
+
+    .foot_section {
+
+        width: 100%;
+        height: 75%;
+    }
+
+    .foot_section:nth-child(1) {
+        padding-left: 1vw;
+    }
+
+    .foot_one {
+        width: auto;
+
+    }
+
+    .foot_one h2 {
+
+        font-size: 4vw;
+    }
+
+    .foot_one h3 {
+
+        font-size: 3vw;
+
+    }
+
+    .foot_social {
+        width: 100%;
+        height: 40%;
+
+    }
+
+    .foot_insta {
+        width: 70px;
+        height: 70px;
+    }
+
+    .foot_insta i {
+        font-size: 8vw;
+    }
+
+    .foot_last {
+        height: 10%;
+        margin-top: 5vw;
+    }
+
+    .foot_last>h3 {
+        margin-top: 6vw;
+    }
+}

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../stylesheets/categories.css">
+    <style>
+        .player_bot {
+            width: 100%;
+            height: 12vh;
+            background-color: rgb(0, 0, 0);
+            position: fixed;
+            bottom: -40%;
+
+            align-items: center;
+            justify-content: space-evenly;
+            display: flex;
+            border-top: 1px solid grey;
+            transition: .4s;
+        }
+
+        .one {
+            width: 28vw;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+        }
+
+        .two {
+            width: 38vw;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .three {
+            width: 28vw;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .one_cont {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* letter-spacing: 1px; */
+        }
+
+        .one_cont a {
+            font-size: 1.5vw;
+
+        }
+
+        .text_one p {
+            text-transform: lowercase;
+            color: grey;
+            font-size: .9vw;
+
+        }
+
+        .text_heart {
+            height: 6vh;
+        }
+
+        .text_heart i {
+            color: #fff;
+            font-size: 1.4vw;
+        }
+
+        #aud {
+            width: 100%;
+            background: black;
+            height: 70%;
+        }
+
+        .side_img {
+            width: 60px;
+            height: 60px;
+            background-color: aliceblue;
+        }
+
+        .side_img img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .vol {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .vol i {
+            font-size: 1.4vw;
+            color: #fff;
+        }
+
+        .mutebtn {
+            display: none;
+        }
+
+        .three .repeat {
+            cursor: pointer;
+            color: grey;
+        }
+
+        .down_arrow {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            right: 1%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: -15%;
+        }
+
+        .down_arrow i {
+            font-size: 1.5vw;
+            color: #000000;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="page1">
+            <div class="left_placeholder"></div>
+            <div class="left">
+                <div class="logo">
+                    <img src="../images/spologo.png" alt="">
+                </div>
+                <div class="list listdiffer">
+                    <div class="item active">
+                        <a href=""><i class="ri-home-4-fill"></i>
+                            <h3>Home</h3>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href=""><i class="ri-search-line"></i>
+                            <h3>Search</h3>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a href=""><i class="ri-contacts-book-upload-line"></i>
+                            <h3>Your Library</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="list listdiffer2">
+                    <div class="item">
+                        <a href=""><i class="ri-add-box-fill"></i>
+                            <h3>Create Playlist</h3>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href=""><i class="ri-heart-fill"></i>
+                            <h3>Liked Songs</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+           
