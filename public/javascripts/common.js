@@ -76,7 +76,9 @@ var resp_arrow = 0;
 document.querySelector(".resp_arrow").addEventListener("click", function () {
     if (resp_arrow == 0) {
         document.querySelector(".player_bot").style.backgroundColor= "#000"
-        document.querySelector(".player_bot").style.height = "93%"
+        document.querySelector(".player_bot").style.height = "100%"
+        document.querySelector(".resp_arrow").style.top = "6vh";
+
         document.querySelector(".resp_arrow").style.transform = "rotate(180deg)";
         document.querySelector(".player_bot").classList.add("player_bot_act");
         document.querySelector(".one").classList.add("one_active");
@@ -96,6 +98,7 @@ document.querySelector(".resp_arrow").addEventListener("click", function () {
     else {
         document.querySelector(".player_bot").style.backgroundColor = "rgba(0, 0, 0, 0.742)"
         document.querySelector(".player_bot").style.height = "7.6vh"
+        document.querySelector(".resp_arrow").style.top = "-10%";
         document.querySelector(".resp_arrow").style.transform = "rotate(0deg)"
         document.querySelector(".player_bot").classList.remove("player_bot_act");
         document.querySelector(".one").classList.remove("one_active");

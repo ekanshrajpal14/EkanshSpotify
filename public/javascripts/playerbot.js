@@ -53,7 +53,7 @@ songcard.forEach(function (dets) {
 
         }
         else {
-            document.querySelector(".player_bot").style.bottom = "9.5vh";
+            document.querySelector(".player_bot").style.bottom = "8vh";
 
         }
 

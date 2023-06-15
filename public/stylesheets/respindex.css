@@ -76,9 +76,9 @@
     .right {
         width: 100vw;
         overflow: hidden;
-        height: auto ;
+        height: auto;
         padding-bottom: 10vh;
-            height: auto;
+        height: auto;
     }
 
     .right_layer1 {
@@ -194,6 +194,75 @@
 
     .list .comingsoon {
         display: flex;
+    }
+
+
+
+    /* footer part resp */
+
+    .footer {
+        width: 100%;
+        height: 42vh;
+        overflow: hidden;
+    }
+    .foot_image{
+        left: 25%;
+        width: 145%;
+    }
+    .foot_cont {
+        display: block;
+
+        height: 60%;
+    }
+
+    .foot_section {
+
+        width: 100%;
+        height: 75%;
+    }
+
+    .foot_section:nth-child(1) {
+        padding-left: 1vw;
+    }
+
+    .foot_one {
+        width: auto;
+
+    }
+
+    .foot_one>h2 {
+
+        font-size: 4vw;
+    }
+
+    .foot_one>h3 {
+
+        font-size: 3vw;
+
+    }
+
+    .foot_social {
+        width: 100%;
+        height: 40%;
+
+    }
+
+    .foot_insta {
+        width: 70px;
+        height: 70px;
+    }
+
+    .foot_insta>i {
+        font-size: 8vw;
+    }
+
+    .foot_last {
+        height: 10%;
+        margin-top: 5vw;
+    }
+
+    .foot_last h3 {
+        margin-top: 6vw;
     }
 
 }

@@ -38,7 +38,7 @@ if (tpb != null) {
 
         }
         else {
-            document.querySelector(".player_bot").style.bottom = "9.5vh";
+            document.querySelector(".player_bot").style.bottom = "8vh";
 
         }
     })
