@@ -269,7 +269,7 @@ router.post("/edit/profile", upload.single("pic"), isLoggedIn, async function (r
 
       var dppath = req.file.path;
       var url = await myAccDp(dppath);
-      await console.log(url);
+      console.log(url);
       updateuser.pic = await url;
       await updateuser.save();
     }
@@ -363,8 +363,10 @@ router.get("/delete/song/:songid", isLoggedIn, function (req, res) {
         const urlsong = song.song;
         const publicIdsong = urlsong.split('/').pop().split('.')[0];
         const publicId = urlimage.split('/').pop().split('.')[0];
-        await deletedToCloud(publicId);
-        await deletedToCloudaudio(publicIdsong);
+        var folerrpublicid = "All_songs_and_images/" + publicId;
+        var folerrpublicidsong = "All_songs_and_images/" + publicIdsong;
+        await deletedToCloud(folerrpublicid);
+        await deletedToCloudaudio(folerrpublicidsong);
         var adminsongs = await user.createdadminsongs.indexOf(req.params.songid);
         await user.createdadminsongs.splice(adminsongs, 1);
         await user.save();
@@ -662,13 +664,13 @@ router.get("/songsid/:id/:listid", isLoggedIn, function (req, res) {
 
 
 
-router.get("/admin/admincreating", isLoggedIn, function (req, res) {
-  userModel.findOne({ username: req.session.passport.user }).then(function (user) {
-    user.isadmin = true;
-    user.save();
-    res.send(user);
-  })
-})
+// router.get("/admin/admincreating", isLoggedIn, function (req, res) {
+//   userModel.findOne({ username: req.session.passport.user }).then(function (user) {
+//     user.isadmin = true;
+//     user.save();
+//     res.send(user);
+//   })
+// })
 
 
 

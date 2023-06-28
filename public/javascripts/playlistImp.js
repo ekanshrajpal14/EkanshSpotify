@@ -1,5 +1,5 @@
 var tpb = document.querySelector(".tapplaybtn");
-
+var Isplaying = false;
 if (tpb != null) {
     var reqPlaylist = tpb.dataset.playbtn;
 }
@@ -12,6 +12,8 @@ var tempId = [];
 if (tpb != null) {
     tpb.addEventListener("click", function (d) {
         axios.get(`/playinglist/${reqPlaylist}`).then(function (songs) {
+            
+            Isplaying = true;    // 3rd commit ke liye kuch added kiya h 
             if (songslist.length == 0) {
                 songs.data.list.forEach(element => {
                     songslist.push(element.song)
@@ -51,6 +53,7 @@ function playSong(index) {
 }
 // new playsong function banana h 
 function newPlaySong(index, id, listid) {
+    Isplaying = true;
     currentSongIndexaaaa = index;
     axios.get(`/songsid/${id}/${listid}`).then(function (song) {
 
@@ -183,3 +186,30 @@ volumeControl.addEventListener('input', () => {
 
 });
 
+
+
+
+
+// responisve work here
+
+if (window.screen.width < 600) {
+    var comingsooncheck = 0;
+
+    document.querySelector(".comingsoon").addEventListener("click", function (d) {
+        if (comingsooncheck === 0) {
+            if (Isplaying) {
+                document.querySelector(".listdiffer2").style.bottom = "14vh"
+                document.querySelector(".listdiffer2").style.zIndex = "999999999999999999";
+            }
+            document.querySelector(".listdiffer2").style.display = "flex";
+            comingsooncheck = 1
+        }
+        else {
+            comingsooncheck = 0
+            document.querySelector(".listdiffer2").style.display = "none";
+
+        }
+
+    })
+
+}

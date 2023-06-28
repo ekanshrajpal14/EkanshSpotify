@@ -121,22 +121,3 @@ document.querySelector(".resp_arrow").addEventListener("click", function () {
 
 
 
-// adding new part of comon
-
-
-
-if (window.screen.width < 600) {
-    var comingsooncheck = 0;
-    document.querySelector(".comingsoon").addEventListener("click", function (d) {
-        if (comingsooncheck === 0) {
-            document.querySelector(".listdiffer2").style.display = "flex";
-            comingsooncheck = 1
-        }
-        else {
-            comingsooncheck = 0
-            document.querySelector(".listdiffer2").style.display = "none";
-
-        }
-    })
-
-}

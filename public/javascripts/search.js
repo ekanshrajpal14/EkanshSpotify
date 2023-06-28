@@ -68,7 +68,8 @@ function reValueDiv() {
     SongCardRoute(songcard)
 }
 
-// somgs playing area  
+// somgs playing area
+var Isplaying = false;  
 function SongCardRoute(songcard) {
     songcard.forEach(function (dets) {
 
@@ -79,6 +80,7 @@ function SongCardRoute(songcard) {
 
 
             axios.get(`/play/${id}`).then(function (resp) {
+                Isplaying = true;
                 likeflag = 1;
                 document.querySelector("#songnamehere").innerHTML = resp.data.songPlaying.track
                 document.querySelector(".text_one p").innerHTML = resp.data.songPlaying.artist
@@ -122,6 +124,35 @@ function SongCardRoute(songcard) {
 
             }
         })
+    })
+
+}
+
+
+
+
+// responsive work thoda 
+
+
+
+if (window.screen.width < 600) {
+    var comingsooncheck = 0;
+
+    document.querySelector(".comingsoon").addEventListener("click", function (d) {
+        if (comingsooncheck === 0) {
+            if (Isplaying) {
+                document.querySelector(".listdiffer2").style.bottom = "14vh"
+                document.querySelector(".listdiffer2").style.zIndex = "999999999999999999";
+            }
+            document.querySelector(".listdiffer2").style.display = "flex";
+            comingsooncheck = 1
+        }
+        else {
+            comingsooncheck = 0
+            document.querySelector(".listdiffer2").style.display = "none";
+
+        }
+
     })
 
 }

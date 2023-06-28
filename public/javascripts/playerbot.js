@@ -1,11 +1,12 @@
 var songcard = document.querySelectorAll(".song_card_route");
 var audio = document.querySelector("#aud");
+var Isplaying = false;
 
 songcard = [...songcard];
 // somgs playing area  
 songcard.forEach(function (dets) {
-
     dets.addEventListener("click", function (elem) {
+        Isplaying = true;
 
         // var id = elem.target.dataset.name;
         var id = this.getAttribute('data-name')
@@ -137,3 +138,30 @@ volumeControl.addEventListener('input', () => {
     updateVolume();
 
 });
+
+
+// adding new part of comon
+
+
+
+if (window.screen.width < 600) {
+    var comingsooncheck = 0;
+   
+    document.querySelector(".comingsoon").addEventListener("click", function (d) {
+        if (comingsooncheck === 0) {
+            if (Isplaying) {
+                document.querySelector(".listdiffer2").style.bottom = "14vh"
+                document.querySelector(".listdiffer2").style.zIndex = "999999999999999999";
+            }
+            document.querySelector(".listdiffer2").style.display = "flex";
+            comingsooncheck = 1
+        }
+        else {
+            comingsooncheck = 0
+            document.querySelector(".listdiffer2").style.display = "none";
+
+        }
+
+    })
+
+}
